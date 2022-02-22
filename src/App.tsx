@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Styled from 'styled-components';
 
-import { InputContainer, ToDoItem } from 'Components';
+import { InputContainer, ToDoList } from 'Components';
 
 const Container = Styled.div`
   min-height: 100vh;
@@ -47,13 +47,8 @@ function App() {
   return (
     <Container>
       <Contents>
-        <ToDoListContainer data-testid='toDoList'>
-          {toDoList.map((item, index) => (
-            <ToDoItem key={item} label={item} onDelete={() => deleteToDo(index)} />
-          ))}
-        </ToDoListContainer>
+        <ToDoList toDoList={toDoList} deleteToDo={deleteToDo} />
         <InputContainer toDo={toDo} onChange={(text) => setToDo(text)} onAdd={addToDo} />
-
       </Contents>
     </Container>
   );
